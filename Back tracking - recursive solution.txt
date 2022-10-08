@@ -1,0 +1,21 @@
+class Solution {
+public:
+    void f(int i ,string s ,string ds, vector<string> & ans , vector<string> &tel) {
+        if(i==s.size()){
+            ans.push_back(ds);
+            return;
+        }
+        for(int k=0;k<tel[s[i]-'0'].size();k++){
+            ds+=tel[s[i]-'0'][k];
+            f(i+1,s,ds,ans,tel);
+            ds=ds.substr(0,ds.size()-1);
+        }
+    }
+    vector<string> letterCombinations(string digits) {
+        vector<string>tel {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        vector<string>ans;
+        if(digits.size()==0)return ans;
+        f(0,digits,"",ans,tel);
+        return ans;
+    }
+};
