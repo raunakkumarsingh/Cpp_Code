@@ -2,34 +2,32 @@
 Algorithm for Topological Sorting:
 Prerequisite: DFS
 
-We can modify DFS to find the Topological Sorting of a graph. In DFS, 
-
-We start from a vertex, we first print it, and then 
-Recursively call DFS for its adjacent vertices. 
+We can modify DFS to find the Topological Sorting of a graph. In DFS,
+We start from a vertex, we first print it, and then
+Recursively call DFS for its adjacent vertices.
 In topological sorting,
-
-We use a temporary stack. 
-We don’t print the vertex immediately, 
-we first recursively call topological sorting for all its adjacent vertices, then push it to a stack. 
-Finally, print the contents of the stack. 
-Note: A vertex is pushed to stack only when all of its adjacent vertices (and their adjacent vertices and so on) are already in the stack
+We use a temporary stack.
+We don’t print the vertex immediately,
+we first recursively call topological sorting for all its adjacent vertices, then push it to a stack.
+Finally, print the contents of the stack.
+Note: A vertex is pushed to stack only when all of its adjacent vertices (and their adjacent vertices and so on) are already in the stack.
 
 Approach:
 
-Create a stack to store the nodes.
-Initialize visited array of size N to keep the record of visited nodes.
-Run a loop from 0 till N
-if the node is not marked True in visited array
-Call the recursive function for topological sort and perform the following steps.
-Mark the current node as True in the visited array.
-Run a loop on all the nodes which has a directed edge to the current node
-if the node is not marked True in the visited array:
-Recursively call the topological sort function on the node
-Push the current node in the stack.
-Print all the elements in the stack.
+1. Create a stack to store the nodes.
+2. Initialize visited array of size N to keep the record of visited nodes.
+3. Run a loop from 0 till N
+4. if the node is not marked True in visited array
+5. Call the recursive function for topological sort and perform the following steps.
+6. Mark the current node as True in the visited array.
+7. Run a loop on all the nodes which has a directed edge to the current node
+8. if the node is not marked True in the visited array:
+9. Recursively call the topological sort function on the node
+10.Push the current node in the stack.
+11.Print all the elements in the stack.
 */
 
-/ A C++ program to print topological
+// A C++ program to print topological
 // sorting of a DAG
 #include <bits/stdc++.h>
 using namespace std;
@@ -135,3 +133,8 @@ int main()
  
     return 0;
 }
+
+/* Time Complexity: O(V+E). The above algorithm is simply DFS with an extra stack. So time complexity is the same as DFS
+Auxiliary space: O(V). The extra space is needed for the stack
+
+Note: Here, we can also use a vector instead of the stack. If the vector is used then print the elements in reverse order to get the topological sorting.*/
