@@ -1,3 +1,4 @@
+// Rat in a maze problem solved in efficient way
 /* Rat can only move on 1's not on 0's as 0's are blocked
 and rat can move in four direction Up, Down, Left, Right
 the rat is initially placed at (0,0) in a rectangular grid
